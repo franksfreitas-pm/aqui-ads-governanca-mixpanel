@@ -419,25 +419,28 @@ function renderFiltersBar() {
     const statuses = getUniqueValues('status');
 
     container.innerHTML = `
-        <div class="flex flex-col lg:flex-row gap-4 mb-4">
-            <div class="flex-1">
-                <input type="text" id="search-input" value="${state.filters.search}" placeholder="Buscar evento, descrição ou propriedade..." class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5">
+        <div class="flex flex-col gap-3 mb-4">
+            <div class="relative w-full">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="text" id="search-input" value="${state.filters.search}" placeholder="Buscar por nome do evento, nome amigável, descrição ou propriedade..." class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange pl-10 p-2.5">
             </div>
-            <div class="flex flex-wrap gap-3">
-                <select id="filter-module" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 min-w-[150px]">
-                    <option value="Todos">Todos Módulos</option>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <select id="filter-module" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 truncate">
+                    <option value="Todos">Todos os Módulos</option>
                     ${modules.map(m => `<option value="${m}" ${state.filters.module === m ? 'selected' : ''}>${m}</option>`).join('')}
                 </select>
-                <select id="filter-category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 min-w-[150px]">
-                    <option value="Todas">Todas Categorias</option>
+                <select id="filter-category" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 truncate">
+                    <option value="Todas">Todas as Categorias</option>
                     ${categories.map(c => `<option value="${c}" ${state.filters.errorCategory === c ? 'selected' : ''}>${c}</option>`).join('')}
                 </select>
-                <select id="filter-action" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 min-w-[150px]">
-                    <option value="Todas">Todas Ações</option>
+                <select id="filter-action" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 truncate">
+                    <option value="Todas">Todas as Ações</option>
                     ${actions.map(a => `<option value="${a}" ${state.filters.resolutionAction === a ? 'selected' : ''}>${a}</option>`).join('')}
                 </select>
-                <select id="filter-status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 min-w-[120px]">
-                    <option value="Todos">Qualquer Status</option>
+                <select id="filter-status" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-aqui-orange focus:border-aqui-orange p-2.5 truncate">
+                    <option value="Todos">Qualquer Status de Volume</option>
                     ${statuses.map(s => `<option value="${s}" ${state.filters.volumeStatus === s ? 'selected' : ''}>${s}</option>`).join('')}
                 </select>
             </div>
