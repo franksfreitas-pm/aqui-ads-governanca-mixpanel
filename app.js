@@ -37,15 +37,21 @@ function saveLocalDecisions(decisionsMap) {
     }
 }
 
+const BASELINE_CONSOLIDATION_TS = Date.parse('2026-10-22T19:35:00Z');
+
 function applyDecisionsToEvents(decisionsMap) {
     if (!decisionsMap || typeof decisionsMap !== 'object') return;
     state.events = state.events.map(ev => {
         const dec = decisionsMap[ev.original_name];
         if (!dec) return ev;
+        const isNewerThanBaseline = (dec.updated_at || 0) > BASELINE_CONSOLIDATION_TS;
+        if (!isNewerThanBaseline && ev.approved) {
+            return ev;
+        }
         return {
             ...ev,
             approved: dec.approved !== undefined ? dec.approved : ev.approved,
-            pm_comments: dec.pm_comments !== undefined ? dec.pm_comments : ev.pm_comments,
+            pm_comments: (dec.pm_comments && dec.pm_comments.trim() !== '') ? dec.pm_comments : ev.pm_comments,
             suggested_name: dec.suggested_name !== undefined ? dec.suggested_name : ev.suggested_name,
             resolution_action: dec.resolution_action !== undefined ? dec.resolution_action : ev.resolution_action
         };

@@ -8,7 +8,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Redundância",
     "suggested_name": "scroll",
-    "resolution_action": "Consolidar em Evento Canônico",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Evento legado sem disparos recentes e fora do código atual. Foi substituído pelo evento global 'scroll' nas Landing Pages e pelos eventos específicos de rolagem por contexto (como 'inventory_scroll_reached' na página de resultados e 'ads_metrics_scroll_depth' no painel Meus Anúncios). Recomendamos consolidar no evento canônico 'scroll' e ocultar este registro no Dicionário de Eventos.",
     "current_properties": [],
     "suggested_properties": [
@@ -43,8 +43,8 @@
         "note": "Identificador da seção visível na tela ao atingir o marco de rolagem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon e manter apenas o evento global scroll.",
+    "approved": true
   },
   {
     "original_name": "ac_site_tour_interacted",
@@ -55,7 +55,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Padronização de Prefixo",
     "suggested_name": "ad_creator_tour_interacted",
-    "resolution_action": "Padronizar Prefixo (ac_site_ para ad_creator_)",
+    "resolution_action": "Manter e Padronizar Propriedades",
     "diagnostic_description": "Disparado quando o usuário interage com o tour guiado (onboarding) dentro do fluxo Contrate uma Arte. Para eliminar a ambiguidade entre os prefixos 'ac_site_*' e 'ad_creator_*' no mesmo módulo, recomendamos padronizar para 'ad_creator_tour_interacted' e renomear 'action' para 'tour_action' e 'step' para 'step_number'.",
     "current_properties": [
       "action",
@@ -135,8 +135,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Manter nome atual e não renomear campaign_id/plan_id no código para não quebrar relatórios.",
+    "approved": true
   },
   {
     "original_name": "briefing_ia_goal_selected",
@@ -234,8 +234,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Nesta etapa ainda não existe ID de campanha; manter is_logged sem renomear.",
+    "approved": true
   },
   {
     "original_name": "creative_template_selected",
@@ -246,7 +246,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "creative_template_selected",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado na Central de Especificações Técnicas quando o usuário seleciona um modelo de criativo para visualizar detalhes de formato. Está no código atual, mas sem volume nos últimos 30 dias e sem propriedades enviadas no payload.",
     "current_properties": [],
     "suggested_properties": [
@@ -295,8 +295,8 @@
         "note": "Caminho da página onde a seleção ocorreu."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d na central de especificações. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "mobile_form_step_completed",
@@ -307,7 +307,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_form_step_completed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário avança uma etapa no formulário de captação de leads da Landing Page de Mobile Advertising. Presente no código atual, mas requer propriedades padronizadas de etapa para medir abandono intermediário do formulário.",
     "current_properties": [],
     "suggested_properties": [
@@ -349,8 +349,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado Takumi sem volume. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "proposal_downloaded",
@@ -456,8 +456,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Unificar fluxo padrão e Renata (assistant_origin), corrigir tipo numérico de total_value e não renomear plan_id/campaign_id nem is_logged.",
+    "approved": true
   },
   {
     "original_name": "sign_up_started",
@@ -473,8 +473,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado do Estúdio Criativo (já oculto). O evento oficial é main_signup_started.",
+    "approved": true
   },
   {
     "original_name": "$mp_web_page_view",
@@ -539,7 +539,7 @@
     "visibility": "Visível",
     "error_category": "Inconsistência de Idioma e Formatação",
     "suggested_name": "support_contact_initiated",
-    "resolution_action": "Consolidar em Evento Canônico",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Nomenclatura legada misturando inglês e português com hífens ('button_fale-com-especialista') e sem disparos recentes. No código atual, o acionamento de executivos de vendas/especialistas é rastreado pelo evento canônico 'support_contact_initiated'. Recomendamos consolidar em 'support_contact_initiated' e ocultar este evento no Dicionário de Eventos.",
     "current_properties": [],
     "suggested_properties": [
@@ -574,8 +574,8 @@
         "note": "Indica se o usuário estava logado no momento do clique."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume (substituído por support_contact_initiated). Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "scroll",
@@ -624,8 +624,8 @@
         "note": "Adicionar identificador da Landing Page para facilitar cortes analíticos por campanha."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado como evento canônico de rolagem. Remover propriedades vazias e timestamp redundante.",
+    "approved": true
   },
   {
     "original_name": "add_to_cart",
@@ -852,8 +852,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Unificar add_to_cart e inventory_item_added em add_to_cart, diferenciando o meio via media_type (ooh, digital, radio, tv) e mantendo item_category e provider sem renomear chaves legadas.",
+    "approved": true
   },
   {
     "original_name": "remove_from_cart",
@@ -989,8 +989,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Consolidar em cart_item_removed.",
+    "approved": true
   },
   {
     "original_name": "my_ads_view_toggled",
@@ -1001,7 +1001,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "my_ads_view_toggled",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário alterna o modo de visualização (grade de cards vs. lista) no painel Meus Anúncios. Evento bem estruturado no padrão objeto_acao.",
     "current_properties": [
       "environment",
@@ -1072,8 +1072,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Decidido descontinuar/ocultar (toggle de grade/lista em Meus Anúncios sem relevância analítica).",
+    "approved": true
   },
   {
     "original_name": "creative_cloud_scroll_reached",
@@ -1084,7 +1084,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "creative_cloud_scroll_reached",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado na Landing Page de Estúdio Criativo (Contrate uma Arte) ao atingir marcos de rolagem da página. Presente no código atual; recomendamos garantir o envio padronizado da propriedade 'scroll_depth_percentage'.",
     "current_properties": [],
     "suggested_properties": [
@@ -1119,8 +1119,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado Rubi/Estúdio Criativo sem volume. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "ad_details_name_edited",
@@ -1130,8 +1130,8 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
-    "suggested_name": "ad_details_name_edited",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "suggested_name": "media_plan_name_edited",
+    "resolution_action": "Consolidar em Evento Canônico",
     "diagnostic_description": "Disparado quando o usuário edita e salva o nome da campanha na tela de Detalhes do Anúncio dentro do painel Meus Anúncios. Evento válido; recomendamos padronizar 'proposal_id' para 'campaign_id' e 'is_logged' para 'is_authenticated'.",
     "current_properties": [
       "ad_id",
@@ -1219,8 +1219,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Unificar com o evento de edição de nome na tela de Resumo, diferenciando apenas pela propriedade da página.",
+    "approved": true
   },
   {
     "original_name": "ad_creator_model_changed",
@@ -1231,7 +1231,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Redundância",
     "suggested_name": "ad_creator_model_changed",
-    "resolution_action": "Consolidar com ac_site_model_changed",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Existe duplicidade no módulo 'Contrate uma Arte' entre os prefixos 'ad_creator_*' (sem volume recente) e 'ac_site_*' (ativo em produção via 'ac_site_model_changed'). Recomendamos adotar 'ad_creator_model_changed' como evento canônico único por ter nomenclatura mais clara, migrando para ele as propriedades hoje disparadas em 'ac_site_model_changed'.",
     "current_properties": [],
     "suggested_properties": [
@@ -1308,8 +1308,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "mobile_lp_viewed",
@@ -1320,7 +1320,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_lp_viewed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário acessa a Landing Page de Mobile Advertising. Presente no código atual; recomendamos enriquecer o disparo com propriedades de identificação da LP e contexto de navegação.",
     "current_properties": [],
     "suggested_properties": [
@@ -1369,8 +1369,8 @@
         "note": "Indica se o visitante já possui sessão autenticada."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado Takumi sem volume. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "condo_address_searched",
@@ -1467,8 +1467,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado (busca de endereço de condomínio no Meu Perfil). Manter sem renomear propriedades existentes.",
+    "approved": true
   },
   {
     "original_name": "main_signup_step_completed",
@@ -1479,7 +1479,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "main_signup_step_completed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado a cada etapa intermediária concluída dentro do fluxo principal de cadastro. Está no código atual, mas sem propriedades mapeadas; deve enviar o número e o nome da etapa concluída para análise de conversão passo a passo.",
     "current_properties": [],
     "suggested_properties": [
@@ -1535,8 +1535,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Etapa antiga de seleção CPF/CNPJ que não existe mais no cadastro. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "main_signup_started",
@@ -1610,8 +1610,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado como evento oficial de início de cadastro. Não adicionar signup_trigger (já coberto por page_path). Investigar disparo simultâneo com main_login_started.",
+    "approved": true
   },
   {
     "original_name": "realestate_lp_scroll_depth",
@@ -1622,7 +1622,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "realestate_lp_scroll_depth",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado na Landing Page vertical do Setor Imobiliário ao atingir marcos de rolagem da página. Presente no código atual; recomendamos padronizar o envio da propriedade 'scroll_depth_percentage'.",
     "current_properties": [],
     "suggested_properties": [
@@ -1657,8 +1657,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Substituído pelo evento global scroll. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "ad_creator_interaction",
@@ -1669,7 +1669,7 @@
     "visibility": "Visível",
     "error_category": "Escopo Genérico / Sobreposição",
     "suggested_name": "ad_creator_interaction",
-    "resolution_action": "Substituir por Eventos Específicos do Criador de Artes",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Evento genérico presente no código do módulo 'Contrate uma Arte', sem disparos recentes porque as ações relevantes já possuem eventos dedicados ('ad_creator_model_changed', 'ad_creator_text_customized', 'ad_creator_asset_uploaded', 'ad_creator_style_changed'). Recomendamos priorizar os eventos específicos por ação.",
     "current_properties": [],
     "suggested_properties": [
@@ -1711,8 +1711,8 @@
         "note": "Caminho da página do editor."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado Estúdio Criativo sem volume. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "lead_already_exists",
@@ -1723,7 +1723,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "lead_already_exists",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado nas Landing Pages de Combos quando o usuário tenta submeter um lead com e-mail ou documento já cadastrado na base. Gatilho válido; recomendamos enriquecer o payload com o formulário de origem e o tipo de campo duplicado.",
     "current_properties": [],
     "suggested_properties": [
@@ -1772,8 +1772,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Legado LP Combos sem volume. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "media_plan_draft_saved",
@@ -1886,8 +1886,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado (principal indicador de heavy user). Corrigir tipo de total_value e substituir ooh_count/digital_count por items_count + items (JSON/lista com itens, nomes e categorias). Replicar padrão no pagamento aprovado.",
+    "approved": true
   },
   {
     "original_name": "$session_start",
@@ -1903,8 +1903,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "ad_creator_player_interacted",
@@ -1915,7 +1915,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Redundância",
     "suggested_name": "ad_creator_player_interacted",
-    "resolution_action": "Consolidar com ac_site_player_interacted",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Existe duplicidade no módulo 'Contrate uma Arte' entre 'ad_creator_player_interacted' (sem volume recente) e 'ac_site_player_interacted' (ativo em produção). Recomendamos consolidar ambos no nome canônico 'ad_creator_player_interacted', mantendo o payload de interação do player.",
     "current_properties": [],
     "suggested_properties": [
@@ -1985,8 +1985,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "sign_up",
@@ -2104,8 +2104,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Disparando em duplicidade com main_signup_completed e enviando PII. Levantar os 9 reports do Mixpanel que usam este evento para avisar os donos antes de desativar.",
+    "approved": true
   },
   {
     "original_name": "briefing_ia_filters_applied",
@@ -2211,8 +2211,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Corrigir tipagem numérica sem renomear propriedades existentes.",
+    "approved": true
   },
   {
     "original_name": "main_signup_verification_sent",
@@ -2294,8 +2294,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Incluir propriedade booleana is_resent (reenvio de código).",
+    "approved": true
   },
   {
     "original_name": "view_item_list",
@@ -2439,8 +2439,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Dispara ao carregar os itens na página de Resumo/Carrinho; manter sem renomear propriedades.",
+    "approved": true
   },
   {
     "original_name": "realestate_lp_cta_clicked",
@@ -2451,7 +2451,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "realestate_lp_cta_clicked",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário clica em um botão de chamada para ação (CTA) na Landing Page do Setor Imobiliário. Segue o padrão snake_case com escopo bem definido; recomendamos incluir propriedades que identifiquem qual botão e seção da LP geraram o clique.",
     "current_properties": [],
     "suggested_properties": [
@@ -2493,8 +2493,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "ad_details_billing_guarantee_clicked",
@@ -2577,8 +2577,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Manter chave no código e ajustar apenas Display Name no Lexicon se necessário.",
+    "approved": true
   },
   {
     "original_name": "cart_item_removed",
@@ -2715,8 +2715,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado como evento canônico de remoção do carrinho (unificando remove_from_cart), incluindo remove_source (Resultados vs. Resumo) sem renomear plan_id/campaign_id.",
+    "approved": true
   },
   {
     "original_name": "ac_site_asset_uploaded",
@@ -2727,7 +2727,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Padronização de Prefixo",
     "suggested_name": "ad_creator_asset_uploaded",
-    "resolution_action": "Padronizar Prefixo (ac_site_ para ad_creator_)",
+    "resolution_action": "Manter e Padronizar Propriedades",
     "diagnostic_description": "Disparado quando o usuário faz upload de um insumo visual (logotipo, imagem de fundo ou ícone) dentro do fluxo Contrate uma Arte. Recomendamos padronizar o prefixo 'ac_site_' para 'ad_creator_asset_uploaded' e explicitar a unidade de tamanho do arquivo ('file_size_mb').",
     "current_properties": [
       "asset_type",
@@ -2814,8 +2814,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Incluir formato do arquivo (file_format: PNG, JPEG, SVG) sem renomear prefixo ou chaves existentes.",
+    "approved": true
   },
   {
     "original_name": "my_ads_cta_redirected",
@@ -2825,8 +2825,8 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
-    "suggested_name": "my_ads_cta_redirected",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "suggested_name": "click_button",
+    "resolution_action": "Consolidar em Evento Canônico",
     "diagnostic_description": "Disparado quando o usuário clica em um botão de chamada para ação em Meus Anúncios que o redireciona para outro fluxo (ex: enviar criativos, concluir pagamento ou iniciar nova campanha). Evento válido; recomendamos padronizar 'destination' para 'destination_url'.",
     "current_properties": [
       "campaign_id",
@@ -2906,8 +2906,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Consolidar em click_button.",
+    "approved": true
   },
   {
     "original_name": "ad_details_action_performed",
@@ -2917,8 +2917,8 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
-    "suggested_name": "ad_details_action_performed",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "suggested_name": "click_button",
+    "resolution_action": "Consolidar em Evento Canônico",
     "diagnostic_description": "Disparado quando o usuário executa uma ação secundária na tela de Detalhes do Anúncio (como baixar comprovante, ver nota fiscal ou duplicar plano). Recomendamos padronizar 'action' para 'action_type' e 'proposal_id' para 'campaign_id'.",
     "current_properties": [
       "action",
@@ -2998,8 +2998,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Consolidar em click_button.",
+    "approved": true
   },
   {
     "original_name": "my_ads_action_clicked",
@@ -3009,8 +3009,8 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
-    "suggested_name": "my_ads_action_clicked",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "suggested_name": "click_button",
+    "resolution_action": "Consolidar em Evento Canônico",
     "diagnostic_description": "Disparado quando o usuário clica em uma ação rápida sobre um card ou linha de campanha na listagem de Meus Anúncios (ex: ver detalhes, editar rascunho, enviar criativo). O evento tem escopo claro e boas propriedades de negócio.",
     "current_properties": [
       "action_type",
@@ -3090,8 +3090,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Eliminar duplicidade e consolidar em click_button.",
+    "approved": true
   },
   {
     "original_name": "creative_uploaded",
@@ -3206,8 +3206,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado. Corrigir tipagem sem renomear propriedades existentes.",
+    "approved": true
   },
   {
     "original_name": "inventory_photo_viewed",
@@ -3314,8 +3314,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado na Página de Resultados.",
+    "approved": true
   },
   {
     "original_name": "ad_details_status_stepper_clicked",
@@ -3414,8 +3414,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado.",
+    "approved": true
   },
   {
     "original_name": "Visita - Página de Combos (Desenvolvimento)",
@@ -3431,8 +3431,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume / legado dev. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "ac_site_text_customized",
@@ -3443,7 +3443,7 @@
     "visibility": "Visível",
     "error_category": "Duplicidade / Padronização de Prefixo",
     "suggested_name": "ad_creator_text_customized",
-    "resolution_action": "Padronizar Prefixo (ac_site_ para ad_creator_)",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário edita os campos de texto do criativo dentro da ferramenta Contrate uma Arte. Recomendamos padronizar o prefixo 'ac_site_' para 'ad_creator_text_customized' e incluir propriedades de contexto do campo editado.",
     "current_properties": [],
     "suggested_properties": [
@@ -3485,8 +3485,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d no Ad Creator. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "ab_test_conversion",
@@ -3502,8 +3502,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "begin_checkout",
@@ -3656,8 +3656,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado (dispara ao abrir etapa de pagamento após o Resumo).",
+    "approved": true
   },
   {
     "original_name": "search_performed",
@@ -3668,7 +3668,7 @@
     "visibility": "Visível",
     "error_category": "Escopo Ambíguo / Falta Prefixo",
     "suggested_name": "specs_search_performed",
-    "resolution_action": "Renomear com Prefixo do Módulo (specs_)",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado na Central de Especificações Técnicas quando o usuário busca por um formato ou veículo. O nome atual 'search_performed' é excessivamente genérico e pode ser confundido com a busca de endereço na página de resultados ('inventory_address_search_executed') ou em Meus Anúncios ('my_ads_search_performed'). Recomendamos renomear para 'specs_search_performed'.",
     "current_properties": [],
     "suggested_properties": [
@@ -3710,8 +3710,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Busca de especificações técnicas sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "briefing_ia_recommendation_modified",
@@ -3810,8 +3810,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado (evento de alto valor analítico). Manter sem renomear propriedades.",
+    "approved": true
   },
   {
     "original_name": "ad_details_designer_flow_interacted",
@@ -3902,8 +3902,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado.",
+    "approved": true
   },
   {
     "original_name": "click_button",
@@ -3913,7 +3913,7 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Antipadrão (Evento Guarda-Chuva)",
-    "suggested_name": "cta_clicked",
+    "suggested_name": "click_button",
     "resolution_action": "Desmembrar e Saneamento de Propriedades",
     "diagnostic_description": "Antipadrão crítico de evento guarda-chuva: atualmente 'click_button' é disparado em fluxos completamente distintos (validação de cupom, controle de mapa na página de resultados, seleção de item e cliques em CTAs genéricos), acumulando 28 propriedades misturadas. Deve ser renomeado para 'cta_clicked' restrito a botões globais de chamada para ação, removendo imediatamente todas as propriedades vazadas de cupom ('code', 'discount', 'is_valid', 'received_discount', 'total_discount') e de mapa ('is_map_visible', 'map_view_state', 'item_id'), que já pertencem a 'coupon_applied' e 'inventory_map_interacted'.",
     "current_properties": [
@@ -4122,8 +4122,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Manter nome click_button, remover propriedades vazadas de cupom/desconto e alterar component para cta_location.",
+    "approved": true
   },
   {
     "original_name": "tv_lp_form_completed",
@@ -4133,8 +4133,8 @@
     "status": "Com Volume Recente",
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
-    "suggested_name": "tv_lp_form_completed",
-    "resolution_action": "Manter e Saneamento de Propriedades (PII)",
+    "suggested_name": "form_submit",
+    "resolution_action": "Consolidar em Evento Canônico",
     "diagnostic_description": "Disparado quando o usuário conclui e envia o formulário de captação de lead na Landing Page de TV. Requer remoção de ' timestamp' (com espaço inicial), remoção de 'page' duplicado e retirada de PII sensível ('email', 'name', 'phone') do payload do evento (enviar via People Profile).",
     "current_properties": [
       " timestamp",
@@ -4264,8 +4264,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Padronizar todos os formulários em form_started, form_step e form_submit (com form_id e form_name) e remover PII.",
+    "approved": true
   },
   {
     "original_name": "mobile_lp_cta_clicked",
@@ -4276,7 +4276,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_lp_cta_clicked",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário clica em um botão de chamada para ação (CTA) na Landing Page de Mobile Advertising. Nomenclatura válida e alinhada às demais LPs; recomendamos adicionar propriedades de contexto do botão clicado.",
     "current_properties": [],
     "suggested_properties": [
@@ -4318,8 +4318,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume há >30d. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "main_signup_completed",
@@ -4437,8 +4437,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado como evento oficial de conclusão de cadastro. Remover PII do payload e enviar signup_method (email, google, globo_id).",
+    "approved": true
   },
   {
     "original_name": "Scroll Total da Página",
@@ -4454,8 +4454,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume / legado. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "Visita - Página de Combos",
@@ -4471,8 +4471,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume / legado. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "account_access_requested",
@@ -4488,8 +4488,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Funcionalidade antiga sem uso. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "inventory_view_mode_changed",
@@ -4500,7 +4500,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "inventory_view_mode_changed",
-    "resolution_action": "Manter e Padronizar Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário alterna entre os modos de exibição de mapa e lista na página de resultados. Evento bem estruturado e essencial para entender a preferência de navegação na escolha de pontos de OOH.",
     "current_properties": [
       "environment",
@@ -4571,8 +4571,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Toggle antigo de visualização que morreu. Ocultar/remover.",
+    "approved": true
   },
   {
     "original_name": "Scroll Total da Página (Desenvolvimento)",
@@ -4588,8 +4588,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Sem volume / legado dev. Ocultar no Lexicon.",
+    "approved": true
   },
   {
     "original_name": "inventory_address_search_executed",
@@ -4679,8 +4679,8 @@
         "note": "Manter URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Sessão #1 (22/10): Aprovado com correção crítica de bug: tag voltou a disparar a cada letra digitada (keystroke) em vez de apenas ao concluir/selecionar a busca. Não implementar search_type no front-end; mapear também mudança de data de início.",
+    "approved": true
   },
   {
     "original_name": "ac_site_support_interacted",
@@ -5326,7 +5326,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "ads_metrics_content_consumed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o anunciante visualiza/consome os relatórios e gráficos de performance da campanha na aba de métricas em Meus Anúncios. Presente no código atual; recomendamos enriquecer com o identificador da campanha e o bloco de métrica visualizado.",
     "current_properties": [],
     "suggested_properties": [
@@ -5368,8 +5368,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "realestate_lp_viewed",
@@ -5380,7 +5380,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "realestate_lp_viewed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário acessa a Landing Page vertical do Setor Imobiliário. Presente no código atual; recomendamos enviar propriedades padronizadas de identificação da LP.",
     "current_properties": [],
     "suggested_properties": [
@@ -5429,8 +5429,8 @@
         "note": "Booleano indicando se o visitante está autenticado."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "ad_details_creative_action_clicked",
@@ -6338,8 +6338,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "briefing_ia_address_searched",
@@ -6628,8 +6628,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "R2home_lp_scrolled",
@@ -6716,7 +6716,7 @@
     "visibility": "Visível",
     "error_category": "Inconsistência de Idioma e Formatação",
     "suggested_name": "lp_cta_clicked",
-    "resolution_action": "Consolidar em Evento Canônico",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Evento legado com mistura de idiomas e hífens ('button_anunciar-agora'), sem volume nos últimos 30 dias e fora do código atual. Cliques em chamadas para ação de Landing Pages são rastreados por 'lp_cta_clicked' (com a propriedade 'cta_label'). Recomendamos consolidar em 'lp_cta_clicked' e ocultar este evento no Dicionário de Eventos.",
     "current_properties": [],
     "suggested_properties": [
@@ -6758,8 +6758,8 @@
         "note": "Caminho da URL."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "my_ads_sort_changed",
@@ -7720,7 +7720,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_specialist_clicked",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado na Landing Page de Mobile Advertising quando o visitante clica no botão para conversar com executivos de vendas/especialistas. Segue o padrão objeto_acao; recomendamos enriquecer o payload com o canal de contato e a localização do botão na página.",
     "current_properties": [],
     "suggested_properties": [
@@ -7755,8 +7755,8 @@
         "note": "Caminho da URL da Landing Page."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "billing_page_viewed",
@@ -9045,7 +9045,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_form_lead_started",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o visitante inicia o preenchimento do formulário de lead na Landing Page de Mobile Advertising. Presente no código atual; recomendamos garantir o envio de 'form_id' e 'lp_name'.",
     "current_properties": [],
     "suggested_properties": [
@@ -9080,8 +9080,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "ab_test_impression",
@@ -9097,8 +9097,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "form_step",
@@ -9411,7 +9411,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "ads_metrics_scroll_depth",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o anunciante rola a tela de relatório de métricas da campanha em Meus Anúncios. Presente no código atual; recomendamos enviar 'scroll_depth_percentage' e 'campaign_id'.",
     "current_properties": [],
     "suggested_properties": [
@@ -9446,8 +9446,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "inventory_cta_clicked",
@@ -9835,8 +9835,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "partial_form_submit",
@@ -10068,8 +10068,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "lead_generate",
@@ -10218,8 +10218,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "login",
@@ -10567,8 +10567,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "proposal_date_changed",
@@ -10683,8 +10683,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "support_contact_initiated",
@@ -10785,7 +10785,7 @@
     "visibility": "Visível",
     "error_category": "Inconsistência de Formatação (Colchetes)",
     "suggested_name": "proposal_downloaded",
-    "resolution_action": "Consolidar em proposal_downloaded",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário baixa uma proposta gerada com apoio da assistente virtual Renata. O prefixo '[R] ' usa colchetes e espaço, violando a convenção snake_case e fragmentando a métrica de propostas baixadas. Recomendamos consolidar no evento canônico 'proposal_downloaded' passando a propriedade 'download_source: renata'.",
     "current_properties": [],
     "suggested_properties": [
@@ -10834,8 +10834,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "specs_view_mode_changed",
@@ -11187,7 +11187,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "ads_metrics_exported",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o anunciante exporta o relatório de resultados/métricas de uma campanha em Meus Anúncios. Presente no código atual; recomendamos garantir o envio de 'campaign_id' e 'export_format'.",
     "current_properties": [],
     "suggested_properties": [
@@ -11222,8 +11222,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "briefing_ia_completed",
@@ -11553,7 +11553,7 @@
     "visibility": "Visível",
     "error_category": "Inconsistência de Idioma e Formatação",
     "suggested_name": "lp_cta_clicked",
-    "resolution_action": "Consolidar em Evento Canônico",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Evento legado com mistura de idiomas e hífens ('button_anuncie-agora'), sem volume nos últimos 30 dias e fora do código atual. Deve ser consolidado no evento canônico 'lp_cta_clicked' (com 'cta_label: Anuncie Agora') e ocultado no Dicionário de Eventos.",
     "current_properties": [],
     "suggested_properties": [
@@ -11595,8 +11595,8 @@
         "note": "Caminho da URL."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "mobile_form_lead_submitted",
@@ -11607,7 +11607,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_form_lead_submitted",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o visitante conclui e envia o formulário de lead na Landing Page de Mobile Advertising. Presente no código atual; recomendamos garantir o envio de 'form_id' e 'lp_name' sem expor PII no payload.",
     "current_properties": [],
     "suggested_properties": [
@@ -11642,8 +11642,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "shopping_cta_clicked",
@@ -11752,7 +11752,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "mobile_lp_scroll_depth",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado conforme o visitante rola a Landing Page de Mobile Advertising. Presente no código atual; recomendamos garantir o envio de 'scroll_depth_percentage' (Inteiro) e 'lp_name'.",
     "current_properties": [],
     "suggested_properties": [
@@ -11787,8 +11787,8 @@
         "note": "URL completa de origem."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "Formulário Enviado - Combos",
@@ -11804,8 +11804,8 @@
     "current_properties": [],
     "suggested_properties": [],
     "property_governance": [],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "login_barrier_viewed",
@@ -12272,7 +12272,7 @@
     "visibility": "Visível",
     "error_category": "Gatilho Válido",
     "suggested_name": "collaborators_page_viewed",
-    "resolution_action": "Manter e Enriquecer Propriedades",
+    "resolution_action": "Descartar / Ocultar no Mixpanel",
     "diagnostic_description": "Disparado quando o usuário acessa a tela de gerenciamento de colaboradores/membros da equipe na conta. Presente no código atual; recomendamos enviar a quantidade de colaboradores ativos na conta.",
     "current_properties": [],
     "suggested_properties": [
@@ -12307,8 +12307,8 @@
         "note": "Caminho da página."
       }
     ],
-    "pm_comments": "",
-    "approved": false
+    "pm_comments": "Pré-triagem pós-Sessão #1 (22/10): Evento sem disparos há >30 dias — definido ocultar no Lexicon do Mixpanel (mantendo histórico) para acelerar a Sessão #2.",
+    "approved": true
   },
   {
     "original_name": "R2home_cta_clicked",
